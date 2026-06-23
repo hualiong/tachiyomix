@@ -1,6 +1,6 @@
 package eu.kanade.tachiyomi.source.model
 
-@Suppress("Unused")
+@Suppress("unused")
 enum class UpdateStrategy {
     ALWAYS_UPDATE,
     ONLY_FETCH_ONCE,

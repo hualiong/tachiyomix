@@ -1,6 +1,6 @@
 package eu.kanade.tachiyomi
 
-@Suppress("Unused")
+@Suppress("unused")
 object AppInfo {
     /**
      * Version code of the host application. May be useful for sharing as User-Agent information.
@@ -17,4 +17,12 @@ object AppInfo {
      * @since extension-lib 1.3
      */
     fun getVersionName(): String = throw Exception("Stub!")
+
+    /**
+     * A list of supported image MIME types by the reader.
+     * e.g. ["image/jpeg", "image/png", ...]
+     *
+     * @since extension-lib 1.5
+     */
+    fun getSupportedImageMimeTypes(): List<String> = throw Exception("Stub!")
 }

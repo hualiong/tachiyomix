@@ -1,90 +1,19 @@
+@file:Suppress("ktlint:standard:property-naming")
+
 package eu.kanade.tachiyomi.source.model
 
-import kotlinx.serialization.json.JsonObject
-
-@Suppress("UNUSED", "PropertyName")
+@Suppress("unused")
 interface SChapter {
 
     var url: String
 
     var name: String
 
-    /**
-     * Volume number in string format.
-     *
-     * Typically validated using the pattern:
-     * ```
-     * ^(?:-?\d+(?:\.\d+)?[a-z]?|nan)$
-     * ```
-     *
-     * This format supports:
-     * * Whole numbers → `"1"`
-     * * Decimal numbers → `"1.5"`
-     * * Optional trailing lowercase letters → `"1a"`, `"1.5b"`
-     * * Negative values → `"-1"`
-     * * `null` for unnumbered volumes
-     * * Literal `"nan"` for unknown or ambiguous values
-     *
-     * When encountering `"nan"`, the app may attempt to infer a volume number manually.
-     * If parsing still fails, it is recommended to treat the value as `null`.
-     *
-     * See also: [number]
-     */
-    var volume: String?
-
-    @Deprecated("Provide SChapter.number instead")
-    var chapter_number: Float
-
-    /**
-     * Chapter number in string format.
-     *
-     * Typically validated using the pattern:
-     * ```
-     * ^(?:-?\d+(?:\.\d+)?[a-z]?|nan)$
-     * ```
-     *
-     * This format supports:
-     * * Whole numbers → `"1"`
-     * * Decimal numbers → `"1.5"`
-     * * Optional trailing lowercase letters → `"1a"`, `"1.5b"`
-     * * Negative values → `"-1"`
-     * * `null` for unnumbered chapters
-     * * Literal `"nan"` for unknown or ambiguous values
-     *
-     * When encountering `"nan"`, the app may attempt to infer a chapter number manually.
-     * If parsing still fails, it is recommended to treat the value as `null`.
-     *
-     * See also: [volume]
-     */
-    var number: String?
-
-    @Deprecated("Provide SChapter.scanlators instead")
-    var scanlator: String?
-
-    var scanlators: List<String>
-
     var date_upload: Long
 
-    /**
-     * Optional note associated with the chapter.
-     *
-     * This can include date of availability, locked status, or other context shown to the user
-     * alongside the chapter. Content is free-form and source-defined.
-     */
-    var note: String?
+    var chapter_number: Float
 
-    /**
-     * Extra metadata associated with the chapter.
-     *
-     * The JSON object is not visible to users and intended for internal or source-specific
-     * purposes. Apps may define their own namespaced keys (e.g., `"mihon.*"`) for sources to populate.
-     *
-     * This allows apps to attach and ask for custom information without affecting the visible
-     * chapter data.
-     *
-     * @since tachiyomix 1.6
-     */
-    var memo: JsonObject
+    var scanlator: String?
 
     companion object {
         fun create(): SChapter = throw Exception("Stub!")

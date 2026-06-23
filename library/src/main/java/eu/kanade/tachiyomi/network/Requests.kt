@@ -1,4 +1,4 @@
-@file:Suppress("Unused", "FunctionName")
+@file:Suppress("ktlint:standard:function-naming")
 
 package eu.kanade.tachiyomi.network
 
@@ -19,7 +19,7 @@ fun GET(
 ): Request = throw Exception("Stub!")
 
 /**
- * @since tachiyomix 1.4
+ * @since extensions-lib 1.4
  */
 fun GET(
     url: HttpUrl,
